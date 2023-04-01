@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    
+    
+
+    <style>
+        #plataforma{
+            background-color: rgb(106, 117, 239);
+            padding: 20px;
+            width: 350px;
+            height: 300px;
+            border-radius: 20px;
+            position: absolute;
+            top: 20px;
+            margin-left: 400px;
+        }
+
+        #nome{
+            border-radius: 5px;
+            border-color: rgb(170, 209, 196);
+            position: relative;
+            top: 55px;
+        }
+
+        #sobrenome{
+            border-radius: 5px;
+            border-color:rgb(170, 209, 196);
+            position: relative;
+            top: 55px;
+        }
+
+        #sintoma{
+            border-radius: 5px;
+            border-color:rgb(170, 209, 196);
+            position: relative;
+            top: 100px;
+            width: 300px;
+            margin-left: 20px;
+        }
+
+        #clicar{
+            border-radius: 5px;
+            border-color: rgb(170, 209, 196);
+            position: relative;
+            top: 120px;
+            width: 200px;
+            height: 25px;
+            margin-left: 70px;
+        }
+
+        #titulo{
+            position: absolute;
+            top: 10px;
+            margin-left: 495px;
+            color: rgb(240, 236, 236);
+            font-family: Trebuchet MS;
+            font-size: x-large;
+            width: 300px;
+            text-shadow: 0px 1px black;
+        }
+
+        #nome1{
+            color:rgb(240, 236, 236);
+            position: absolute;
+            top: 52px;
+            margin-left: 425px;
+        }
+        #sobrenome1{
+            color:rgb(240, 236, 236);
+            position: absolute;
+            top: 52px;
+            margin-left: 600px;
+        }
+        #sintoma1{
+            color: rgb(240, 236, 236);
+            position: absolute;
+            top: 115px;
+            margin-left: 545px;
+            
+            font-family: Trebuchet MS;
+            font-size: 25px;
+            text-shadow: 0px 1px black;
+        }
+
+        #output{
+            color: rgb(0, 0, 0);
+            position: absolute;
+            top: 250px;
+            margin-left: 465px;
+          
+            font-family: Trebuchet MS;
+            font-size: 10px;
+            width: 275px;
+            height: 300px;
+            padding: 0px;
+
+        }
+
+     #clicar{
+        border-radius: 10px;
+        box-shadow: 0px 2px black;
+     }
+
+     #resposta{
+        margin-left: 40px;
+        padding: 20px;
+        background-color: rgb(255, 255, 255);
+        position: absolute;
+        top: 230px;
+        width: 240px;
+        height: 40px;
+        border-radius: 10px;
+     }
+     
+    </style>
+
+</head>
+<body>
+
+    <div id="corprincipal">
+        <div id="plataforma">
+        
+            <input type="text" id="nome">
+            <input type="text" id="sobrenome">
+            <input type="text" id="sintoma">
+            <button onclick="ok()" id="clicar">PESQUISAR</button>
+            <div id="resposta"></div>
+    
+        </div>
+    </div>
+
+    <div id='escritas'>
+        <div id="output"></div>
+        <h1 id="titulo">O QUE EU TENHO?</h1>
+        <p id="nome1">Nome</p>
+        <p id="sobrenome1">Sobrenome</p>
+        <h1 id="sintoma1">Sintoma</h1>
+        
+        
+        
+    </div>
+    
+    <script>
+        function ok(){
+            var nome = document.getElementById('nome').value; 
+            var sobrenome = document.getElementById('sobrenome').value
+            var sintoma = document.getElementById('sintoma').value
+
+
+           switch(sintoma){
+            case 'dor de cabeça':
+               document.getElementById('output').innerHTML = `Olá ${nome} ${sobrenome}, Dores de cabeça nem sempre são sintomas de uma doença. Algumas causas comuns incluem: falta de sono, uso de óculos com grau incorreto, estresse, exposição a ruídos altos ou adereços apertados na cabeça. Remédios que podem reduzir a dor de cabeça incluem aspirina, paracetamol e ibuprofeno. Descansar em uma sala escura também pode ajudar.`
+             break;
+
+             case 'dor no corpo':
+                document.getElementById('output').innerHTML = `Olá ${nome} ${sobrenome}, Existem diversas situações que podem gerar dores no corpo, motivos como estresse, ansiedade, processos infecciosos e inflamatórios devido à doenças, são alguns motivos, por exemplo. Contudo, para diagnosticar a causa é recomendado a visita ao médico.` 
+                 break;
+
+                 case 'Insônia': case 'falta de ar': case 'pensativo':
+                 document.getElementById('output').innerHTML = `Olá ${nome} ${sobrenome}, Esses sintomas podem está associado a ansiedade, visite um psicólogo mais próximo.`
+                 break;
+
+                 case 'dor de garganta': case 'nariz entupido': case 'tosse':
+                 document.getElementById('output').innerHTML = `Olá ${nome} ${sobrenome}, Esses sintomas podem está associado a gripe, saiba mais no: ` 
+                 break;
+                                  case 'dor nas costas': case 'dores nas costas': case 'costas doendo':
+                 document.getElementById('output').innerHTML = `Olá ${nome} ${sobrenome}, A dor nas costas nem sempre é sintoma de uma doença. Algumas causas comuns são o desgaste excessivo, como na prática de exercícios ou no levantamento de peso em excesso, a permanência na posição sentada ou deitada por períodos prolongados, dormir em uma posição desconfortável ou o uso de uma mochila mal ajustada.`
+                 break;
+
+                 default:
+                    document.getElementById('output').innerHTML= 'Desculpe, não achamos o seu sintoma, tente procurar por: <br> <br>' + 'Dor de cabeça, dor no corpo, dor nas costas, falta de ar, nariz entupido, tosse, dor de garganta '
+                      break;
+           }
+        }
+    </script>
+</body>
+</html>
